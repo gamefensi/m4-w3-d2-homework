@@ -1,0 +1,29 @@
+<%- include('header'); %>
+<%- include('nav'); %>
+<main>
+<h3>
+    Sign Up
+</h3>
+<% if(typeof errors != 'undefined') { %>
+    <% errors.forEach(function(error) { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= error.msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <% }) %>
+<% } %> 
+<form action="/register" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" id="phone">
+    <button class="btn btn-success">Submit</button>
+</form>
+</main>
+<%- include('footer'); %>
